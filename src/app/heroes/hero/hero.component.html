@@ -1,0 +1,52 @@
+<h1>{{ name }}</h1>
+
+<dl>
+  <td>Nombre:</td>
+  <dd>{{ name }}</dd>
+</dl>
+
+<dl>
+  <td>Edad:</td>
+  <dd>{{ age }}</dd>
+</dl>
+
+<dl>
+  <td>Metodo:</td>
+  <dd> {{ getHeroDescription()}}</dd>
+</dl>
+
+<dl>
+  <td>Capitalizado:</td>
+  <dd>{{ capitaLizedName }}</dd>
+</dl>
+
+<button
+*ngIf="name !== 'Spiderman'"
+(click)="changeHero()" class="btn btn-primary mx-2">
+  <!-- NO OLVIDARSE DE LOS PARENTESIS, PORQUE ESTOY INVOCANDO EL METODO! -->
+  Cambiar Nombre
+</button>
+
+<button
+*ngIf="age !== 30"
+(click)="changeAge()"class="btn btn-primary mx-2">
+  <!-- NO OLVIDARSE DE LOS PARENTESIS, PORQUE ESTOY INVOCANDO EL METODO! -->
+  Cambiar Edad
+</button>
+
+
+<button
+(click)="resetForm()"class="btn btn-primary mx-2">
+  <!-- NO OLVIDARSE DE LOS PARENTESIS, PORQUE ESTOY INVOCANDO EL METODO! -->
+  Reset
+</button>
+
+
+
+
+<!-- ngif="" directiva de Angular, al ser una propiedad de angular no hace falta
+colocar {{}} -->
+<!-- Creamos una condicion que indique si el nombre es !== (distinto) a Spiderman
+el boton desaparece-->
+<!-- Hacemos los mismo con Age -->
+<!-- El boton reset, resetea todos los cambios -->

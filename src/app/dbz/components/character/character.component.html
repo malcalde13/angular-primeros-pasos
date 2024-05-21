@@ -1,0 +1,37 @@
+<h4>Agregar personaje </h4>
+    <form class="row" (ngSubmit)="emitCharacter()">
+
+      <input type="text" [(ngModel)]="character.name"  name="name" class="form-control mb-2" placeholder="Nombre">
+
+      <input type="number" [(ngModel)]="character.power" name="power"  class="form-control mb-2" placeholder="Poder">
+
+      <button type="submit" class="btn btn-primary" >Agregar</button>
+
+      <!-- <pre> {{character | json}} </pre> -->
+
+    </form>
+
+<!-- En este ejemplo se utiliza el Two way data binding
+[(ngModel)]="character.name"
+[()] Con esto asociamos un evento() y un atributo[] al mismo tiempo
+
+Para utilizar esta sintaxis tengo que importar el modulo FormsModule de @angular\forms
+en este caso dentro de dbz.modules.ts
+
+Tengo que definir que los input son parte de un formulario,
+Para eso tenemos que colcoar el atributo name
+
+| json Esto es un Pipe o caracter de tuberia
+Este pipe construye mi objeto exactamente como yo lo queria ver
+-->
+
+<!--
+(ngsubmit) es un evento especial de Angular, que ayuda a la propagacion del formulario
+Cuando el formulario esta listo para ser enviado, ahi es donde necesito llamar el eveneto
+emitCharacter()
+
+Una vez enviada la informacion al backend, necesito que se limpie la informacion
+Entonces realizamos lo siguiente
+    this.character.name = '';
+    this.character.power = 0;
+ -->

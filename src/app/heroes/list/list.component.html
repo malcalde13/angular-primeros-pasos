@@ -1,0 +1,38 @@
+<h3>Listado de Heroes</h3>
+
+<div *ngIf="deletedHero; else nadaBorrado">
+  <!--Con *ngif indicamos que si tiene un heroe borrado mostra el valor de h3 "Heroe Borrado" -->
+<h3>Heroe eliminado <small class="text-danger">{{ deletedHero }}</small></h3>
+<!-- interpolacion {{}} -->
+</div>
+
+<!-- ng-templante, es como un <div> que no existe, fisicamente este div no se va a ver
+pero si musetra el contenido -->
+<!-- Para utilizar este template, utilizamos la condicion else y creamos un nombre
+para el template que quiero mostrar "nadaBorrado" -->
+<!-- Es el nombre de la referencia dentro del template. apartir del div -->
+<!-- La referencia se realiza con el # + el nombre de dicha referencia -->
+<ng-template #nadaBorrado>
+  <h3>No se ha eliminado ningun elemento </h3>
+</ng-template>
+<!-- Si ya no hay elementos, no tiene sentido seguir mistrando este h3 -->
+
+<!-- Colocamos la condicion *ngif e indicamos que si hernoNames.length es mayor a 0,
+este h3 se va a mostar si no no lo muestra-->
+<button *ngIf="heroNames.length > 0" (click)="removeLastHero()" class="btn btn-outline-danger">
+  Borrar ultimo Heroe
+</button>
+
+
+
+<ul class="mt-2 list-group">
+  <!-- Para repetir este elemento uso un *ngfor -->
+    <!-- <li *ngFor="let name of heroNames" class="list-group-item">Spiderman</li> -->
+  <!-- Cuando lo mostramos en pantalla, vamos a ver una lista con 4 nombres,
+  que son los nombres que agregue en la propieda publica heroNames-->
+  <!-- Para que en la lista aparezca el nombre del valor que tiene en la interacion,
+  hay que utilizar la interpolacion {{}}-->
+  <li *ngFor="let name of heroNames" class="list-group-item"><strong>{{ name }}</strong></li>
+</ul>
+<!-- Lo que hace angular con este elemento HTML, es como un template HTML que va a repetir
+segun la cantidad de elementos que haya en el siclo for-->

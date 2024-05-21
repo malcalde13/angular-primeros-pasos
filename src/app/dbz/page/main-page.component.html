@@ -1,0 +1,26 @@
+<h1>Personajes DBZ</h1>
+<hr>
+
+<div class="row">
+  <div class="col">
+
+    <!-- CUARTO AGREGO EL EVENTO onDelete
+    Para llamar el valor emitido de ese evento, utilizo $event
+    -->
+   <app-dbz-list [characterList]="characters" (onDelete)="onDeleteCharacter($event)"></app-dbz-list>
+
+
+  </div>
+<!-- Aca comienza el formulario -->
+  <div class="col">
+
+    <app-dbz-add-character (onNewCharacter)="onNewCharacter($event)" ></app-dbz-add-character>
+
+  </div>
+</div>
+
+
+<!--
+  Cuando app-dbz-add-character emita un nuevo personaje yo necesito escuchar el evento()
+
+ -->
